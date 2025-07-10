@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final product</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+</head>
+<body>
+    <!-- wrap all content -->
+    <div id="wrapper">
+        <!-- Maintaine 80% width -->
+        <div class="container">
+            <div class="nav" id="navbar">
+                <img src="logo.png" alt="logo">
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#sorting-section">SORTING</a></li>
+                        <li><a href="#searching-section">SEARCHING</a></li>
+                        <li><a href="#dataStructure-section">Data structure</a></li>
+                        <li><a href="#about-section">ABOUT</a></li>
+                    </ul>    
+                </div>
+                <div class="social">
+
+                    <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"></i></a>
+
+                    <a href="https://github.com/rawat-sejal" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    
+                    
+                </div>
+                
+            </div>
+            <!-- hero Section -->
+            <div class="heroSection">
+                   <div class="heroLeft">
+                    <div class="leftHeading">
+                        <i class="fa-solid fa-magnifying-glass" id="glass"></i>
+                        DATA STRUCTURE AND ALGORITHM <span> 
+                            <span id="headding-V">V</span>ISUALIZER</span> 
+                    </div>
+                    <div class="leftSubheading">
+                        <p>You can visualize every iteration of DSA</p>
+                    </div>
+                    <div class="leftOption">
+                        <div class="dsaOption">Sorting</div>
+                        <div class="dsaOption">Searching</div>
+                        <div class="dsaOption">Data Structure</div>
+                    </div>
+                   </div>
+                   <div class="heroRight">
+                   </div>
+            </div>
+            <!--Sorting Section -->
+            <div class="sortingSection" id="sorting-section">
+                <div class="sortingOverlay">
+                    <h3>What is sorting?</h3>
+                    <p>Sorting refers to the process of arranging elements in a particular order based on some key or comparison criteria. Sorting is a fundamental operation in DSA and plays a crucial role in various algorithms and applications. The goal of sorting is to make data more organized, easier to search, and faster to access.</p>
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="cardFront">
+                                <h3>Bubble Sort</h3>
+                            <p>Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.</p>
+                            </div>
+                            <div class="cardBack">
+                            <h3> How Does it Work?</h3>
+                            <ul>
+                                <li>It compares each pair of adjacent elements in the list.</li>
+                                <li>If they are in the wrong order, it swaps them.</li>
+                                <li>It co[=[ntinues this process until no swaps are needed, indicating that the list is sorted.</li>
+                            </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="card">
+                            <div class="cardFront">
+                                <h3>Selection Sort</h3>
+                            <p>Selection sort divides the list into sorted and unsorted parts, repeatedly selecting the smallest element from the unsorted part and swapping it with the first element of the unsorted part.</p>
+                            </div>
+                            <div class="cardBack">
+                            <h3> How Does it Work?</h3>
+                            <ul>
+                                <li>Divide the list into sorted and unsorted parts.</li>
+                                <li>Find the smallest element in the unsorted part.</li>
+                                <li>Swap it with the first element of the unsorted part.</li>
+                                <li>Repeat until the list is sorted.</li>
+                            </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="card">
+                            <div class="cardFront">
+                                <h3>Quick Sort</h3>
+                            <p>Quick sort is a highly efficient sorting algorithm that uses a divide-and-conquer approach to sort elements in a list by partitioning the list into smaller sublists based on a pivot element.</p>
+                            </div>
+                            <div class="cardBack">
+                            <h3> How Does it Work?</h3>
+                            <ul>
+                                <li>Select a pivot element from the list.</li>
+                                <li>Reorganize the list with elements smaller than the pivot on the left and larger elements on the right.</li>
+                                <li>Recursively sort left and right sublists.</li>
+                                <li>Combine for final sorted list.</li>
+                            </ul>
+                            </div>
+                            
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="headder">
+                    <h1>Sorting Visualizer</h1>
+                </div>
+                <div class="top">
+                    <div class="top_left">
+                        <div class="inputSection">
+                            <input type="text" class="arrInput" placeholder="Enter the Array">
+                            <button class="genrateBtn">Genrate Array</button>
+                        </div>
+                        <div class="arryOutput">
+                            <div class="arrDisplay"> </div>
+                        </div>
+                    </div>
+                    <div class="top_right">
+                        <div class="selectMethod">
+                            <select  id="selectTech">
+                                <option value="">Sorting Method</option>
+                                <option value="Bs">Bubble sort</option>
+                                <option value="ss">Selection sort</option>
+                                <option value="Qs">Quick sort</option>
+                                <option value="Is">Insertion sort</option>
+                            </select>
+                            <button class="sortBtn">Sort</button>
+                        </div>
+                        <div class="sortingContainer">
+                            <!-- <div class="small-div" id="div1">2</div>
+                            <div class="small-div" id="div2">5</div>
+                            <div class="small-div" id="div3">3</div>
+                            <div class="small-div" id="div4">1</div>
+                            <div class="small-div" id="div5">4</div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="left_bottom">
+                        <div class="bottom_headder">
+                            <h3>Iteration</h3>
+                        </div>
+                        <div class="iterationContainer">
+                           
+                        </div>
+                    </div>
+                    <div class="right_bottom">
+                        <div class="detailsSection">
+                            <h3 class="detailsHeading"></h3>
+                            <table>
+                                <tr>
+                                    <th>Algo</th>
+                                    <th colspan="3">Time complexity</th>
+                                    <th>Space complexity</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>Best</th>
+                                    <th>Average</th>
+                                    <th>Worst</th>
+                                    <th>Worst</th>
+                                </tr>
+                                <tr>
+                                    <td class="algoName"></td>
+                                    <td class="bestTime"></td>
+                                    <td class="avgTime"></td>
+                                    <td class="worstTime"></td>
+                                    <td class="worstSpace"></td>
+
+                                </tr>
+                            </table>
+                            <h4 class="keyPoint"></h4>
+                            <div class="content">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Searching Section -->
+            <div class="searchingSection" id="searching-section">
+                <div class="searchingOverlay">
+                    <h3>What is Searching?</h3>
+                    <p>Searching refers to the process of finding a specific element or value within a collection of data. This collection can be an array, a list, a tree, or any other data structure. The goal of searching algorithms is to efficiently locate the target element, typically by examining elements in the data structure according to a specific strategy or algorithm.</p>
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="cardFront">
+                            <h3>Linear search</h3>
+                            <p>Linear search is a basic searching algorithm that sequentially checks each element in a list until the target element is found or the end of the list is reached.</p>
+                            </div>
+                            <div class="cardBack">
+                            <h3> How Does it Work?</h3>
+                            <ul>
+                                <li>Sequentially checks each element.</li>
+                                <li>Compares with the target element.</li>
+                                <li>Stops when a match is found or the end of the list is reached.</li>
+                            </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="card">
+                            <div class="cardFront">
+                                <h3>Binary search </h3>
+                            <p>
+                                A fast algorithm for finding a target in a sorted array by repeatedly dividing the search space in half until the target is found or the search space is empty.</p>
+                            </div>
+                            <div class="cardBack">
+                            <h3> How Does it Work?</h3>
+                            <ul>
+                                <li>Halves search interval for efficiency.li>
+                                <li>Compares with middle array elemen</li>
+                                <li>Repeats until target found or space exhausted.</li>
+                            </ul>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="findOverLay" onclick="closeOverLay()">
+                    <i class="fa-solid fa-xmark xmark"></i>
+                    <div class="messageBox">
+                    </div>
+                </div>
+                <!-- headding -->
+                <div class="headder">
+                    <h1>Searching Visualizer</h1>
+                </div>
+                <!-- Top -->
+                <div class="searchTop">
+                    <div class="topLeft">
+
+                        <div class="inputSection">
+                            <input type="text" class="arrInput" placeholder="Enter the Array">
+                            <button class="genrateBtn" id="searchGenrate" onclick="scrollToSection('searching-section')">Genrate Array</button>
+                        </div>
+                        <div class="arryOutput">
+                            <div class="arrDisplay" id="showArray"> </div>
+                        </div>
+                    </div>
+                    
+                    <div class="topRight">
+                        <div class="selectMethod">
+                            <input type="text" class="valueInput" placeholder="Enter the value">
+                            <select  id="searchMethod">
+                                <option value="">Searching Method</option>
+                                <option value="LS">Linear Searching</option>
+                                <option value="BS">Binary searching</option>
+                            </select>
+                            <button class="sortBtn" id="searchBtn">Search</button>
+                        </div>
+                        <div class="searchingContainer"></div>
+                    </div>
+                    
+                </div>
+                <!-- Bottom -->
+                <div class="searchBottom">
+                    <div class="leftBottom">
+                        <div class="bottom_headder">
+                            <h3>Iteration</h3>
+                        </div>
+                        <div class="SiterationContainer">
+                           
+                        </div>
+                    </div>
+                    <div class="rightBottom">
+                        <div class="detailsSection">
+                            <h3 class="SearchingHeading"></h3>
+                            <table>
+                                <tr>
+                                    <th>Algo</th>
+                                    <th colspan="3">Time complexity</th>
+                                    <th>Space complexity</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>Best</th>
+                                    <th>Average</th>
+                                    <th>Worst</th>
+                                    <th>Worst</th>
+                                </tr>
+                                <tr>
+                                    <td class="algoName2"></td>
+                                    <td class="bestTime2"></td>
+                                    <td class="avgTime2"></td>
+                                    <td class="worstTime2"></td>
+                                    <td class="worstSpace2"></td>
+
+                                </tr>
+                            </table>
+                            <h4 class="keyPoint2"></h4>
+                            <div class="content2">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Dsa Section -->
+            <div class="dsaSection" id="dataStructure-section">
+                <div class="dsaHeadder">
+                    <h1>Data Structure Visualizer</h1>
+                </div>
+                <div class="DsaOverlay">
+                    <h3>What is data structure?</h3>
+                    <p>Data structure is a way of organizing and storing data in a computer system so that it can be accessed and manipulated efficiently. It defines the relationship between the data elements and enables operations such as insertion, deletion, searching, and sorting. </p>
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="cardFront">
+                                <h3>Array</h3>
+                            <p>Arrays in programming store elements of the same type in contiguous memory, enabling efficient index-based access.</p>
+                            </div>
+                            <div class="cardBack">
+                            <h3> Feature of Array</h3>
+                            <ul>
+                                <li>Contiguous memory for storing elements.</li>
+                                <li>Direct access using index.
+                                </li>
+                                <li>Fixed size after creation.</li>
+                            </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="card">
+                            <div class="cardFront">
+                                <h3>Stack </h3>
+                            <p> A stack is a collection of elements that supports two main operations: pushing (adding) elements onto the top of the stack and popping (removing) elements from the top of the stack.</p>
+                            </div>
+                            <div class="cardBack">
+                            <h3> Opertaion of stack</h3>
+                            <ul>
+                                <li>Push: Adds an element to the top of the stack.</li>
+                                <li>Pop: Removes and returns the top element of the stack.</li>
+                                <li>Peek: Returns the top element of the stack without removing it.</li>
+                            </ul>
+                            </div>
+                            
+                        </div>
+                        <div class="card">
+                            <div class="cardFront">
+                                <h3>Queue</h3>
+                            <p>A queue is a linear data structure with FIFO behavior, where elements are added at the rear/tail and removed from the front/head.</p>
+                            </div>
+                            <div class="cardBack">
+                            <h3>Operation of queue</h3>
+                            <ul>
+                                <li>Enqueue: Adds an element to the rear/tail of the queue.</li>
+                                <li>Dequeue: Removes and returns the element from the front/head of the queue.</li>
+                                <li>Front/Peek: Returns the element at the front/head of the queue without removing it.</li>
+                            </ul>
+                            </div>
+                            
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="displayDsa">
+                    <div class="inputDsa">
+                        <select  id="data-structure-input" onchange="SelectDsa()">
+                            <option value="sel">Select</option>
+                            <option value="arr">Array</option>
+                            <option value="stk">Stack</option>
+                            <option value="que">Queue</option>
+                        </select>
+                        <div class="DisplayArray">
+                            <input type="text" placeholder="Enter size of array" id="arrSize">
+                            <button onclick="genrateBlankArray()">Genrate</button>
+                            <!-- <input type="button" value="Genrate"> -->
+                            <input type="text" placeholder="Enter value" id="arrValue">
+                            <button onclick="addValueToArray()">Add</button>
+                        </div>
+                        <div class="stackSection">
+                            <select name="operation" id="selectBox" >
+                                <option value="push">Push</option>
+                                <option value="pop">Pop</option>
+                                <option value="peek">Peek</option>
+                            </select>
+                            <input type="text"  placeholder="Enter the value" id="pushInput">
+                            <button class="dynamicBtn">Push</button>
+                        </div>
+                        <div class="QSection">
+                            <select name="operation" id="queueSelectBox" >
+                                <option value="push">Push</option>
+                                <option value="pop">Pop</option>
+                                <option value="peek">Peek</option>
+                            </select>
+                            <input type="text"  placeholder="Enter the value" id="queueInput">
+                            <button class="QueueBtn">Enqueue</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="outputDsa">
+                    <!-- <div class="chotu"></div> -->
+                    <!-- <div class="queueDisplay"></div> -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- About Section -->
+    <div class="about" id="about-section">
+        <div class="logoSection">
+            <!-- <img src="logo.png" alt="logo"> -->
+            <img src="hert-removebg-preview.png" alt="logo">
+            <div class="slog">
+                <span>MADE WITH LOVE </span>
+                <span>BY Sejal </span>
+            </div>
+            <div class="copyright">&#169 Made by sejal</div>
+            
+        </div>
+        <div class="contactSection">
+            <span class="ftr-headding">Connect with me</span>
+            <ul>
+
+                <a href="#" target="_blank"><li>LinkedIn</li></a>
+
+                <a href="# " target="_blank"><li>Github</li></a>
+                
+            </ul>
+        </div>
+        <div class="quickLink">
+            <span class="ftr-headding">Quick links</span>
+            <ul>
+                <a href="#"><li>Home</li></a>
+                <a href="#sorting-section"><li>Sorting</li></a>
+                <a href="#searching-section"><li>Seraching</li></a>
+                <a href="#dataStructure-section"><li>Data Structure</li></a>
+
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
