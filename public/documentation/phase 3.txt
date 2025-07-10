@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dsa Visualiser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="arraySection">
+                <div class="headder">
+                    <h1>Array Visualizer</h1>
+                </div>
+                <div class="top">
+                    <div class="top_left">
+                        <div class="inputSection">
+                            <input type="text" class="arrInput" placeholder="Enter the Array">
+                            <button class="genrateBtn">Genrate Array</button>
+                        </div>
+                        <div class="arryOutput">
+                            <div class="arrDisplay">
+                                <!-- <div class="small-div" id="div1">5</div>
+                                <div class="small-div" id="div2">4</div>
+                                <div class="small-div" id="div3">3</div>
+                                <div class="small-div" id="div4">2</div>
+                                <div class="small-div" id="div5">1</div> -->
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="top_right">
+                        <div class="selectMethod">
+                            <select  id="selectTech">
+                                <option value="">Sorting Method</option>
+                                <option value="Ns">Normal sort</option>
+                                <option value="Bs">Bubble sort</option>
+                                <option value="Ms">Merge sort</option>
+                                <option value="Qs">Quick sort</option>
+                            </select>
+                            <button class="sortBtn">Sort</button>
+                        </div>
+                        <div class="sortingContainer">
+                            <!-- <div class="small-div" id="div1">2</div>
+                            <div class="small-div" id="div2">5</div>
+                            <div class="small-div" id="div3">3</div>
+                            <div class="small-div" id="div4">1</div>
+                            <div class="small-div" id="div5">4</div> -->
+                    </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="left_bottom">
+                        <div class="bottom_headder">
+                            <h3>Iteration</h3>
+                        </div>
+                        <div class="iterationContainer"></div>
+                    </div>
+                    <div class="right_bottom">
+                        <div class="detailsSection">
+                            <h3 class="detailsHeading"></h3>
+                            <table>
+                                <tr>
+                                    <th>Algo</th>
+                                    <th colspan="3">Time complexity</th>
+                                    <th>Space complexity</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>Best</th>
+                                    <th>Average</th>
+                                    <th>Worst</th>
+                                    <th>Worst</th>
+                                </tr>
+                                <tr>
+                                    <td class="algoName"></td>
+                                    <td class="bestTime"></td>
+                                    <td class="avgTime"></td>
+                                    <td class="worstTime"></td>
+                                    <td class="worstSpace"></td>
+
+                                </tr>
+                            </table>
+                            <div class="content">
+                                <h4 class="keyPoint">Key Point about</h4>
+                                <ul>
+                                    <li>
+                                        Bubble sort is a straightforward sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.
+                                    </li>
+                                    <li>
+                                        It has an average and worst-case time complexity of O(n^2), making it inefficient for large datasets but suitable for small datasets or educational purposes.
+                                    </li>
+                                    <li>
+                                        Bubble sort is a stable sorting algorithm, meaning that the relative order of equal elements remains unchanged after sorting
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>    
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+//css
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 80%;
+    height: 100%;
+    background-color: #ddd;
+}
+.arraySection{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.arraySection .headder{
+    width: 60%;
+    height: 100px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #eee; */
+}
+.arraySection .top{
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+}
+.bottom{
+    width: 100%;
+    display: flex;
+    visibility: hidden;
+
+}
+.show{
+    visibility: visible;
+}
+.top .top_left{
+    width: 50%;
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+}
+.top_right
+{
+    width: 50%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+.arraySection .inputSection,.selectMethod{
+    /* background-color: blue; */
+    margin: 0 auto;
+    width: 80%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.inputSection input{
+    width: 200px;
+    height: 45px;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.genrateBtn {
+    max-width: 100%;
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 48px;
+  padding: 0 25px;
+  user-select: none;
+}
+.arryOutput{
+    width: 100%;
+    margin: 0 auto;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrDisplay{
+    /* background-color: orange; */
+    width: 90%;
+    height: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.small-div {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(102, 70, 217);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: white;
+    transition: transform 1s ease-in-out;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+.selectMethod select{
+    width: 185px;
+    height: 45px;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.selectMethod button{
+    max-width: 100%;
+    align-items: center;
+    background-color: #fee6e3;
+    border: 2px solid #111;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    height: 48px;
+    padding: 0 25px;
+    user-select: none;
+}
+.sortingContainer{
+    width: 90%;
+    margin: 0 auto;
+    height: 180px;
+    /* background-color: orange; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.left_bottom{
+    width: 50%;
+    /* background-color: peru; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.bottom_headder{
+    width: 60%;
+    height: 40px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #fff; */
+    margin: 0 auto;
+}
+:root {
+    --UpRight-x: 0px;
+    --DownLeft-x: 0px;
+}
+
+@keyframes moveUpRight {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(70px,-70px); }
+    100% { transform: translate(var(--UpRight-x), 0); }
+}
+
+@keyframes moveDownLeft {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-70px, 70px); }
+    100% { transform: translate(var(--DownLeft-x), 0); }
+}
+@keyframes moveUpRotate {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(0, -70px); }
+    100% { transform: translate(0, 0); }
+}
+.iterationContainer{
+    width: 80%;
+    height: 300px;
+    margin: 0 auto;
+    /* background-color: lightcyan; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+
+}
+.iterationContainer div{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+.right_bottom{
+    width: 50%;
+
+}
+.detailsSection{
+    width: 100%;
+    height: 100%;
+    /* background-color: slategrey; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    /* justify-content: center; */
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    font-size: 18px;
+  }
+  .right_bottom .content{
+    width: 100%;
+    height:200px;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+ .detailsHeading, .content h4{
+    font-size: 20px;
+  }
+  .content li{
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 22px;
+  }
+//java
+let arrInput = document.querySelector('.arrInput');
+let genrateArr = document.querySelector('.genrateBtn');
+let displayArr =document.querySelector('.arrDisplay');
+let sortingContainer =document.querySelector('.sortingContainer');
+let sortBtn = document.querySelector('.sortBtn');
+let container = document.querySelector('.container');
+let itrContainer = document.querySelector('.iterationContainer');
+let selectAlgo = document.querySelector('#selectTech');
+let bottom = document.querySelector('.bottom');
+let algoHeadding = document.querySelector('.detailsHeading');
+let algoName = document.querySelector('.algoName');
+let bestTime = document.querySelector('.bestTime');
+let avgTime = document.querySelector('.avgTime');
+let worstTime = document.querySelector('.worstTime');
+let worstSpace = document.querySelector('.worstSpace');
+let keyPoint = document.querySelector('.keyPoint');
+let count =1;
+//Genrating Array from Input
+genrateArr.addEventListener('click',()=>{
+    displayArr.innerHTML='';
+    sortingContainer.innerHTML='';
+    itrContainer.innerHTML='';
+    let str =arrInput.value;
+    let arr =str.split(' ');
+    console.log(arr);
+    // console.log(typeof(str));
+    arr.forEach(element => {
+        let ele =document.createElement('div');
+        ele.classList.add('small-div');
+        ele.innerHTML = element
+        displayArr.appendChild(ele);
+    });
+    //normal sorting
+    async function normalSorting() {
+        sortingContainer.innerHTML = displayArr.innerHTML;
+        let divArr = sortingContainer.querySelectorAll('.small-div');
+        let arrSize = divArr.length;
+
+        for (let i = 0; i < arrSize - 1; i++) {
+            const coodXI = divArr[i].offsetLeft;
+            for (let j = i + 1; j < arrSize; j++) {
+                if (parseInt(divArr[i].innerHTML) > parseInt(divArr[j].innerHTML)) {
+                    divArr[i].style.backgroundColor='red';
+                    const coodXJ = divArr[j].offsetLeft;
+                    divArr[j].style.backgroundColor = 'red';
+                    let div =document.createElement('div');
+                    
+                    function updateCSSVariables(xi, xj) {
+                        container.style.setProperty('--UpRight-x', `${xj - xi}px`);
+                        container.style.setProperty('--DownLeft-x', `${-xj + xi}px`);
+                        console.log(xi, xj);
+                    }
+
+                    updateCSSVariables(coodXI, coodXJ);
+
+                    divArr[i].style.animation = 'moveUpRight 2s ease-in-out forwards';
+                    divArr[j].style.animation = 'moveDownLeft 2s ease-in-out forwards';
+
+                    
+                    // Delay for animation to finish
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    // Swap elements in the array and update HTML
+                    let temp = divArr[i].innerHTML;
+                    divArr[i].innerHTML = divArr[j].innerHTML;
+                    divArr[j].innerHTML = temp;
+
+                    // Reset animations after swapping
+                    divArr[i].style.animation = '';
+                    divArr[j].style.animation = '';
+                    //Adding to ittration 
+                    let h3 =document.createElement('h3');
+                    h3.textContent = `Iteration No ${count}`;
+                    count++;
+                    div.appendChild(h3);
+                    div.innerHTML += sortingContainer.innerHTML;
+                    itrContainer.appendChild(div);
+
+                    // Reset color
+                    divArr[i].style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+                    divArr[j].style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+                }
+            }
+        }
+    }
+    //bubble sorting
+    async function bubbleSorting() {
+        // alert('andr');
+        sortingContainer.innerHTML = displayArr.innerHTML;
+        let divArr = sortingContainer.querySelectorAll('.small-div');
+        let count =1;
+        let size = divArr.length;
+        for (let i = 0; i < size - 1; i++) {
+            for (let j = 0; j < size - i - 1; j++) {
+                if (parseInt(divArr[j].innerHTML) > parseInt(divArr[j + 1].innerHTML)) {
+                    const coodJ = divArr[j].offsetLeft;
+                    const coodJ1 = divArr[j+1].offsetLeft;
+                    divArr[j].style.backgroundColor='red';
+                    divArr[j + 1].style.backgroundColor='red';
+                    function updateCSSVariables( xi,xj) {
+                        container.style.setProperty('--UpRight-x', `${xj-xi}px`);
+                        container.style.setProperty('--DownLeft-x', `${-xj + xi}px`);
+                        console.log(xi ,xj);
+                    }
+                    
+                    updateCSSVariables( coodJ,coodJ1);
+                    // Swap animation for divArr[j] moving up and right, and divArr[j + 1] moving down and left
+                    divArr[j].style.animation = 'moveUpRight 2s ease-in-out ';
+                    divArr[j + 1].style.animation = 'moveDownLeft  2s ease-in-out ';
+                    // Delay for animation to finish
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    // swapping
+                    let temp = divArr[j].innerHTML;
+                    divArr[j].innerHTML = divArr[j+1 ].innerHTML;
+                    divArr[j+1].innerHTML = temp;
+                    
+                    // Reset animations after swapping
+                    divArr[j].style.animation = '';
+                    divArr[j + 1].style.animation = '';
+
+                    //Adding to ittration 
+                    let div =document.createElement('div');
+                    let h3 =document.createElement('h3');
+                    h3.textContent = `Iteration No ${count}`;
+                    count++;
+                    div.appendChild(h3);
+                    div.innerHTML += sortingContainer.innerHTML;
+                    itrContainer.appendChild(div);
+
+                    // Reset color
+                    divArr[j].style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+                    divArr[j +1].style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+                }
+            }
+        }
+    }
+    //Quick sorting
+    async function quickSort(arr, left = 0, right = arr.length - 1) {
+        
+        if (left >= right) return;
+    
+        let pivot = arr[Math.floor((right + left) / 2)].innerHTML;
+        let index = await partition(arr, left, right, pivot);
+    
+        await quickSort(arr, left, index - 1);
+        await quickSort(arr, index, right);
+    }
+    
+    async function partition(arr, left, right, pivot) {
+        while (left <= right) {
+            while (parseInt(arr[left].innerHTML) < parseInt(pivot)) left++;
+            while (parseInt(arr[right].innerHTML) > parseInt(pivot)) right--;
+    
+            if (left <= right) {
+                await swap(arr, left, right);
+                left++;
+                right--;
+            }
+        }
+        return left;
+    }
+    
+    async function swap(arr, leftIndex, rightIndex) {
+        const leftDiv = arr[leftIndex];
+        const rightDiv = arr[rightIndex];
+        leftDiv.style.backgroundColor = 'red';
+        rightDiv.style.backgroundColor = 'red';
+        console.log(leftIndex,'  ',rightIndex);
+        
+        if(leftIndex != rightIndex){
+            const coodLeft = leftDiv.offsetLeft;
+            const coodRight = rightDiv.offsetLeft;
+            function updateCSSVariables(xLeft, xRight) {
+            container.style.setProperty('--UpRight-x', `${xRight - xLeft}px`);
+            container.style.setProperty('--DownLeft-x', `${-xRight + xLeft}px`);
+            }
+
+            updateCSSVariables(coodLeft, coodRight);
+
+            // Swap animation for leftDiv moving up and right, and rightDiv moving down and left
+        
+            leftDiv.style.animation = 'moveUpRight 2s ease-in-out forwards';
+            rightDiv.style.animation = 'moveDownLeft 2s ease-in-out forwards';
+        }
+        else{
+            console.log("not equal wali condition")
+            rightDiv.style.animation = 'moveUpRotate 2s ease-in-out forwards';
+            leftDiv.style.animation = 'moveUpRotate 2s ease-in-out forwards';
+
+        }
+    
+        // Delay for animation to finish
+        await new Promise(resolve => setTimeout(resolve, 2000));
+    
+        // Swap elements in the array and update HTML
+        let temp = leftDiv.innerHTML;
+        leftDiv.innerHTML = rightDiv.innerHTML;
+        rightDiv.innerHTML = temp;
+    
+        // Reset animations after swapping
+        leftDiv.style.animation = '';
+        rightDiv.style.animation = '';
+
+            // ittration box
+                    let div =document.createElement('div');
+                    let h3 =document.createElement('h3');
+                    h3.textContent = `Iteration No ${count}`;
+                    count++;
+                    div.appendChild(h3);
+                    div.innerHTML += sortingContainer.innerHTML;
+                    itrContainer.appendChild(div);
+        // reset color
+        leftDiv.style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+        rightDiv.style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+
+    }
+    
+    
+    //calling function
+    selectAlgo.addEventListener('change', (event) => {
+        sortingContainer.innerHTML='';
+        itrContainer.innerHTML='';
+        
+    
+        sortBtn.addEventListener('click', async () => {
+            bottom.classList.add('show');
+            const selectedValue = event.target.value;
+            if(selectedValue === 'Ns'){
+                console.log("normal Sorting");
+                await normalSorting();
+            }
+            else if(selectedValue === 'Bs'){
+                console.log("Bubble sorting");
+                algoHeadding.innerHTML="Bubble sort";
+                algoName.innerHTML="bubble sort"
+                keyPoint.innerHTML +=' bubble sort'
+                bestTime.innerHTML=`O(n)`;
+                avgTime.innerHTML=`O(n<sup>2</sup>)`;
+                worstTime.innerHTML=`O(n<sup>2</sup>)`;
+                worstSpace.innerHTML=`O(1)`;
+                await bubbleSorting();
+            }
+            else if(selectedValue === 'Qs'){
+                console.log("Quick sorting");
+                sortingContainer.innerHTML = displayArr.innerHTML;
+                let divArr = sortingContainer.querySelectorAll('.small-div');
+                 await quickSort(divArr);
+            }
+        });
+    });
+    
+})

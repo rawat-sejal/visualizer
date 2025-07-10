@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dsa Visualiser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="arraySection">
+                <div class="headder">
+                    <h1>Array Visualiser</h1>
+                </div>
+                <div class="inputSection">
+                    <input type="text" class="arrInput" placeholder="Enter the Array">
+                    <button class="genrateBtn">Genrate Array</button>
+                </div>
+                <div class="arryOutput">
+                    <div class="arrDisplay">
+                        <!-- <div class="small-div" id="div1">5</div>
+                        <div class="small-div" id="div2">4</div>
+                        <div class="small-div" id="div3">3</div>
+                        <div class="small-div" id="div4">2</div>
+                        <div class="small-div" id="div5">1</div> -->
+                    </div>
+                    <div class="selectMethod">
+                        <select  id="selectTech">
+                            <option value="">Sorting Method</option>
+                            <option value="Ns">Normal sort</option>
+                            <option value="Bs">Bubble sort</option>
+                            <option value="Ms">Merge sort</option>
+                        </select>
+                        <button class="sortBtn">Sort</button>
+                    </div>
+                </div>
+                <div class="sortingContainer">
+                    
+                </div>
+                <div class="iterationContainer">
+                    
+                </div>
+            </div>
+        </div>    
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

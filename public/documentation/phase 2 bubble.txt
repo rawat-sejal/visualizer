@@ -1,0 +1,151 @@
+let arrInput = document.querySelector('.arrInput');
+let genrateArr = document.querySelector('.genrateBtn');
+let displayArr =document.querySelector('.arrDisplay');
+let sortingContainer =document.querySelector('.sortingContainer');
+let sortBtn = document.querySelector('.sortBtn');
+let container = document.querySelector('.container');
+let itrContainer = document.querySelector('.iterationContainer');
+let selectAlgo = document.querySelector('#selectTech');
+
+let count =1;
+//Genrating Array from Input
+genrateArr.addEventListener('click',()=>{
+    let str =arrInput.value;
+    let arr =str.split(' ');
+    console.log(arr);
+    // console.log(typeof(str));
+    arr.forEach(element => {
+        let ele =document.createElement('div');
+        ele.classList.add('small-div');
+        ele.innerHTML = element
+        displayArr.appendChild(ele);
+    });
+    //normal sorting
+    async function normalSorting() {
+        sortingContainer.innerHTML = displayArr.innerHTML;
+        let divArr = sortingContainer.querySelectorAll('.small-div');
+        let arrSize = divArr.length;
+
+        for (let i = 0; i < arrSize - 1; i++) {
+            const coodXI = divArr[i].offsetLeft;
+            for (let j = i + 1; j < arrSize; j++) {
+                if (parseInt(divArr[i].innerHTML) > parseInt(divArr[j].innerHTML)) {
+                    divArr[i].style.backgroundColor='red';
+                    const coodXJ = divArr[j].offsetLeft;
+                    divArr[j].style.backgroundColor = 'red';
+                    let div =document.createElement('div');
+                    
+                    function updateCSSVariables(xi, xj) {
+                        container.style.setProperty('--UpRight-x', `${xj - xi}px`);
+                        container.style.setProperty('--DownLeft-x', `${-xj + xi}px`);
+                        console.log(xi, xj);
+                    }
+
+                    updateCSSVariables(coodXI, coodXJ);
+
+                    divArr[i].style.animation = 'moveUpRight 2s ease-in-out forwards';
+                    divArr[j].style.animation = 'moveDownLeft 2s ease-in-out forwards';
+
+                    
+                    // Delay for animation to finish
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    // Swap elements in the array and update HTML
+                    let temp = divArr[i].innerHTML;
+                    divArr[i].innerHTML = divArr[j].innerHTML;
+                    divArr[j].innerHTML = temp;
+
+                    // Reset animations after swapping
+                    divArr[i].style.animation = '';
+                    divArr[j].style.animation = '';
+                    //Adding to ittration 
+                    let h3 =document.createElement('h3');
+                    h3.textContent = `Iteration No ${count}`;
+                    count++;
+                    div.appendChild(h3);
+                    div.innerHTML += sortingContainer.innerHTML;
+                    itrContainer.appendChild(div);
+
+                    // Reset color
+                    divArr[i].style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+                    divArr[j].style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+                }
+            }
+        }
+    }
+    //bubble sorting
+    async function bubbleSorting() {
+        // alert('andr');
+        sortingContainer.innerHTML = displayArr.innerHTML;
+        let divArr = sortingContainer.querySelectorAll('.small-div');
+        let count =1;
+        let size = divArr.length;
+        for (let i = 0; i < size - 1; i++) {
+            for (let j = 0; j < size - i - 1; j++) {
+                if (parseInt(divArr[j].innerHTML) > parseInt(divArr[j + 1].innerHTML)) {
+                    const coodJ = divArr[j].offsetLeft;
+                    const coodJ1 = divArr[j+1].offsetLeft;
+                    divArr[j].style.backgroundColor='red';
+                    divArr[j + 1].style.backgroundColor='red';
+                    function updateCSSVariables( xi,xj) {
+                        container.style.setProperty('--UpRight-x', `${xj-xi}px`);
+                        container.style.setProperty('--DownLeft-x', `${-xj + xi}px`);
+                        console.log(xi ,xj);
+                    }
+                    
+                    updateCSSVariables( coodJ,coodJ1);
+                    // Swap animation for divArr[j] moving up and right, and divArr[j + 1] moving down and left
+                    divArr[j].style.animation = 'moveUpRight 2s ease-in-out ';
+                    divArr[j + 1].style.animation = 'moveDownLeft  2s ease-in-out ';
+                    // Delay for animation to finish
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    // swapping
+                    let temp = divArr[j].innerHTML;
+                    divArr[j].innerHTML = divArr[j+1 ].innerHTML;
+                    divArr[j+1].innerHTML = temp;
+                    
+                    // Reset animations after swapping
+                    divArr[j].style.animation = '';
+                    divArr[j + 1].style.animation = '';
+
+                    //Adding to ittration 
+                    let div =document.createElement('div');
+                    let h3 =document.createElement('h3');
+                    h3.textContent = `Iteration No ${count}`;
+                    count++;
+                    div.appendChild(h3);
+                    div.innerHTML += sortingContainer.innerHTML;
+                    itrContainer.appendChild(div);
+
+                    // Reset color
+                    divArr[j].style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+                    divArr[j +1].style.backgroundColor = `rgb(${102}, ${70}, ${217})`;
+                }
+            }
+        }
+    }
+
+    //calling function
+    selectAlgo.addEventListener('change', (event) => {
+        const selectedValue = event.target.value;
+        console.log(selectedValue);
+    
+        sortBtn.addEventListener('click', async () => {
+            if(selectedValue === 'Ns'){
+                await normalSorting();
+            }
+            else if(selectedValue === 'Bs'){
+                await bubbleSorting();
+            }
+            else if(selectedValue === 'Ms'){
+                console.log('Merge sorting');
+            }
+            else if(selectedValue === 'Qs'){
+                console.log('Quick sorting');
+            }
+            // console.log("Sorting is happening here.");
+            // await animateSorting();
+        });
+    });
+    
+})
